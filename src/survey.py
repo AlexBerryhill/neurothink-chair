@@ -29,7 +29,8 @@ class Survey():
     def record(self, subject):
         # Create survey dir
         timestamp = str(datetime.datetime.now())
-        survey_name = self.title + " " + subject + " " + timestamp
+        survey_name = self.title + "" + subject 
+        # + "" + timestamp
         survey_dir = self.surveys_dir + "/" + survey_name
         pathlib.Path(survey_dir).mkdir(parents=True)
         
