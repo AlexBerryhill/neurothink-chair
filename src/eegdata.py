@@ -30,6 +30,7 @@ class EEGSurveyDataset(Dataset):
             data = self.transform(data)
         if self.target_transform:
             label = self.target_transform(label)
+        # print(torch.from_numpy(data.T))
         return torch.from_numpy(data.T), label
     
     def _create_ilabel_map(self):

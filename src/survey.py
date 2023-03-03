@@ -7,6 +7,7 @@ import time
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+import playsound as ps
 
 from config import eeg_bands, band_colors
 from eeg_preprocessing import preprocess_eeg_channel
@@ -169,5 +170,7 @@ class Survey():
             self.audio_player_thread.submit(lambda: os.system(cmd))
 
         print("Next step -- " + description)
+        # filename= r'C:/Users/amsb9/Documents/GitHub/neurothink-chair/data/Meditation-bell-sound.mp3'
+        ps.playsound('Meditation-bell-sound.mp3')
         exec_cmd("mpg123 ../data/Meditation-bell-sound.mp3")
         exec_cmd("bash -c 'mimic \"" + description + "\" -o EEG-Muse_tmp.wav && cvlc EEG-Muse_tmp.wav --play-and-exit && rm EEG-Muse_tmp.wav'")
